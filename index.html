@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+    
     <title>Comp Final Project</title>
     <script>
         window.onload = function()
@@ -15,6 +16,22 @@
             button.type = "button"
             button.value = "Click"
             document.body.appendChild(button)
+
+            var br = document.createElement('br')
+            document.body.appendChild(br)
+            
+            //part2 Storage
+            button.onclick=function()
+            {
+                if(textBox.value == "storage")
+                {
+                    var storage = document.createElement('a')
+                    var linkText = document.createTextNode('Link to Storage')
+                    storage.appendChild(linkText)
+                    storage.href="/storage.html"
+                    document.body.appendChild(storage)
+                }
+            }
         }
     </script>
 </head>
