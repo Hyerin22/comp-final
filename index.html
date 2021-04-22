@@ -31,196 +31,197 @@
                     storage.href="/storage.html"
                     document.body.appendChild(storage)
                 }
+                
                 //part 3 alien
-                    // create alien
-                    if(textBox.value == "alien")
-                    {
-                        var alienImg = document.createElement("img")
-                        alienImg.src = "../alien/alienrwalk0.gif"
-                        document.body.appendChild(alienImg)
-                        alienImg.style.position = "absolute"
-                        alienImg.style.left = "30px";
-                        alienImg.style.top = "80px";
-                        alienImg.id = "alien"
-                    }
-    
-                    moveTimer = null
-                    stepNumber = 0
-                    
-    
-                    //step function
-                    function stepRight()
-                    {
-                        stepNumber = stepNumber + 1
-                        if(stepNumber > 30)
-                        {
-                            stepNumber = 0
-                        }
-                        alien.src = "./alien/alienrwalk" + stepNumber +".gif"
-                    }
-                    function stepLeft()
-                    {
-                        stepNumber = stepNumber + 1
-                        if(stepNumber > 30)
-                        {
-                            stepNumber = 0
-                        }
-                        alien.src = "./alien/alienlwalk" + stepNumber +".gif"
-                    }
-                    // walk function
-                    function walkRight()
-                    {
-                        alien.style.left = parseInt(alien.style.left) + 1 + "px"
-                        stepRight()
-                        if(alien.offsetLeft = 33)
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = setInterval(walkLeft, 100)
-                        }
-                        if(textBox.value == "stop")
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = null
-                        }
-                    }
-                    function walkLeft()
-                    {
-                        alien.style.left = parseInt(alien.style.left) - 1 + "px"
-                        stepLeft()
-                        if(alien.offsetLeft = 27)
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = setInterval(walkRight, 100)
-                        }
-                        if(textBox.value == "stop")
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = null
-                        }
-                    }
-                    //run function
-                    function runRight()
-                    {
-                        alien.style.left = parseInt(alien.style.left) + 1 + "px"
-                        stepRight()
-                        if(alien.offsetLeft = 33)
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = setInterval(runLeft, 10)
-                        }
-                        if(textBox.value == "stop")
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = null
-                        }
-                    }
-                    function runLeft()
-                    {
-                        alien.style.left = parseInt(alien.style.left) - 1 + "px"
-                        stepLeft()
-                        if(alien.offsetLeft = 27)
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = setInterval(runRight, 10)
-                        }
-                        if(textBox.value == "stop")
-                        {
-                            clearInterval(moveTimer)
-                            moveTimer = null
-                        }
-                    }
-    
-                    // walk
-                    if(textBox.value == "walk")
-                    {
-                        if(moveTimer == null)
-                        {
-                            moveTimer = setInterval(walkRight, 100)
-                            // if(alien.offsetLeft = 32)
-                            // {
-                            //     clearInterval(moveTimer)
-                            //     moveTimer = setInterval(walkLeft, 100)
-                            // }
-                            // if(alien.offsetLeft = 28)
-                            // {
-                            //     clearInterval(moveTimer)
-                            //     moveTimer = setInterval(walkRight, 100)
-                            // }
-                            // if(textBox.value == "stop")
-                            // {
-                            //     clearInterval(moveTimer)
-                            //     moveTimer = null
-                            // }
-                        }
-                    }
-                    // run
-                    if(textBox.value == "run")
-                    {
-                        if(moveTimer == null)
-                        {
-                            moveTimer = setInterval(runRight, 10)
-                            // if(alien.offsetLeft = 32)
-                            // {
-                            //     clearInterval(moveTimer)
-                            //     moveTimer = setInterval(runLeft, 10)
-                            // }
-                            // if(alien.offsetLeft = 28)
-                            // {
-                            //     clearInterval(moveTimer)
-                            //     moveTimer = setInterval(runRight, 10)
-                            // }
-                            // if(textBox.value == "stop")
-                            // {
-                            //     if(moveTimer =! null)
-                            //     {
-                            //         clearInterval(moveTimer)
-                            //         moveTimer = null
-                            //     }
-                            // }
-                        }
-                        
-                    }
-                    // stop
-                    // if(textBox.value == "stop")
-                    // {
-                    //     if(moveTimer =! null)
-                    //     {
-                    //         clearInterval(moveTimer)
-                    //         // clearInterval(setInterval(walkLeft, 100))
-                    //         // clearInterval(setInterval(walkRight, 100))
-                    //         // clearInterval(setInterval(runLeft, 10))
-                    //         // clearInterval(setInterval(runRight, 10))
-                    //         moveTimer = null
-                        // }
-                        // var walkRightTimer = setInterval(walkRight, 100)
-                        // var walkLeftTimer = setInterval(walkLeft, 100)
-                        // var runRightTimer = setInterval(runRight, 10)
-                        // var runLeftTimer = setInterval(runLeft, 10)
-    
-                        // if(moveTimer = walkRightTimer)
-                        // {
-                        //     clearInterval(walkLeftTimer)
-                        //     clearInterval(walkRightTimer)
-                        //     clearInterval(runLeftTimer)
-                        //     clearInterval(runRightTimer)
-                        //     clearInterval(moveTimer)
-                        // }
-                        // if(moveTimer = walkLeftTimer)
-                        // {
-                        //     clearInterval(walkLeftTimer)
-                        //     clearInterval(walkRightTimer)
-                        //     clearInterval(runLeftTimer)
-                        //     clearInterval(runRightTimer)
-                        //     clearInterval(moveTimer)
-                        // }
-                    // }
-                    console.log(moveTimer)
+                // create alien
+                if(textBox.value == "alien")
+                {
+                    var alienImg = document.createElement("img")
+                    alienImg.src = "../alien/alienrwalk0.gif"
+                    document.body.appendChild(alienImg)
+                    alienImg.style.position = "absolute"
+                    alienImg.style.left = "30px";
+                    alienImg.style.top = "80px";
+                    alienImg.id = "alien"
+                }
 
-                    //bye
-                    if(textBox.value == "bye")
+                moveTimer = null
+                stepNumber = 0
+                
+
+                //step function
+                function stepRight()
+                {
+                    stepNumber = stepNumber + 1
+                    if(stepNumber > 30)
                     {
-                        alien.style.display = "none";
+                        stepNumber = 0
                     }
+                    alien.src = "./alien/alienrwalk" + stepNumber +".gif"
+                }
+                function stepLeft()
+                {
+                    stepNumber = stepNumber + 1
+                    if(stepNumber > 30)
+                    {
+                        stepNumber = 0
+                    }
+                    alien.src = "./alien/alienlwalk" + stepNumber +".gif"
+                }
+                // walk function
+                function walkRight()
+                {
+                    alien.style.left = parseInt(alien.style.left) + 1 + "px"
+                    stepRight()
+                    if(alien.offsetLeft = 33)
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = setInterval(walkLeft, 100)
+                    }
+                    if(textBox.value == "stop")
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = null
+                    }
+                }
+                function walkLeft()
+                {
+                    alien.style.left = parseInt(alien.style.left) - 1 + "px"
+                    stepLeft()
+                    if(alien.offsetLeft = 27)
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = setInterval(walkRight, 100)
+                    }
+                    if(textBox.value == "stop")
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = null
+                    }
+                }
+                //run function
+                function runRight()
+                {
+                    alien.style.left = parseInt(alien.style.left) + 1 + "px"
+                    stepRight()
+                    if(alien.offsetLeft = 33)
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = setInterval(runLeft, 10)
+                    }
+                    if(textBox.value == "stop")
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = null
+                    }
+                }
+                function runLeft()
+                {
+                    alien.style.left = parseInt(alien.style.left) - 1 + "px"
+                    stepLeft()
+                    if(alien.offsetLeft = 27)
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = setInterval(runRight, 10)
+                    }
+                    if(textBox.value == "stop")
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = null
+                    }
+                }
+
+                // walk
+                if(textBox.value == "walk")
+                {
+                    if(moveTimer == null)
+                    {
+                        moveTimer = setInterval(walkRight, 100)
+                        // if(alien.offsetLeft = 32)
+                        // {
+                        //     clearInterval(moveTimer)
+                        //     moveTimer = setInterval(walkLeft, 100)
+                        // }
+                        // if(alien.offsetLeft = 28)
+                        // {
+                        //     clearInterval(moveTimer)
+                        //     moveTimer = setInterval(walkRight, 100)
+                        // }
+                        // if(textBox.value == "stop")
+                        // {
+                        //     clearInterval(moveTimer)
+                        //     moveTimer = null
+                        // }
+                    }
+                }
+                // run
+                if(textBox.value == "run")
+                {
+                    if(moveTimer == null)
+                    {
+                        moveTimer = setInterval(runRight, 10)
+                        // if(alien.offsetLeft = 32)
+                        // {
+                        //     clearInterval(moveTimer)
+                        //     moveTimer = setInterval(runLeft, 10)
+                        // }
+                        // if(alien.offsetLeft = 28)
+                        // {
+                        //     clearInterval(moveTimer)
+                        //     moveTimer = setInterval(runRight, 10)
+                        // }
+                        // if(textBox.value == "stop")
+                        // {
+                        //     if(moveTimer =! null)
+                        //     {
+                        //         clearInterval(moveTimer)
+                        //         moveTimer = null
+                        //     }
+                        // }
+                    }
+                    
+                }
+                // stop
+                // if(textBox.value == "stop")
+                // {
+                //     if(moveTimer =! null)
+                //     {
+                //         clearInterval(moveTimer)
+                //         // clearInterval(setInterval(walkLeft, 100))
+                //         // clearInterval(setInterval(walkRight, 100))
+                //         // clearInterval(setInterval(runLeft, 10))
+                //         // clearInterval(setInterval(runRight, 10))
+                //         moveTimer = null
+                    // }
+                    // var walkRightTimer = setInterval(walkRight, 100)
+                    // var walkLeftTimer = setInterval(walkLeft, 100)
+                    // var runRightTimer = setInterval(runRight, 10)
+                    // var runLeftTimer = setInterval(runLeft, 10)
+
+                    // if(moveTimer = walkRightTimer)
+                    // {
+                    //     clearInterval(walkLeftTimer)
+                    //     clearInterval(walkRightTimer)
+                    //     clearInterval(runLeftTimer)
+                    //     clearInterval(runRightTimer)
+                    //     clearInterval(moveTimer)
+                    // }
+                    // if(moveTimer = walkLeftTimer)
+                    // {
+                    //     clearInterval(walkLeftTimer)
+                    //     clearInterval(walkRightTimer)
+                    //     clearInterval(runLeftTimer)
+                    //     clearInterval(runRightTimer)
+                    //     clearInterval(moveTimer)
+                    // }
+                // }
+                console.log(moveTimer)
+
+                //bye
+                if(textBox.value == "bye")
+                {
+                    alien.style.display = "none";
+                }
             }
 
 
