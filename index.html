@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
     <title>Comp Final Project</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <script>
         window.onload = function()
         {
@@ -248,7 +250,50 @@
                     }
                     $('img').click(changeImg)
                 }
+            
+            
+             //Part 4 jquery
+             if(textBox.value == "jquery")
+                {
+                    var ImageSource = ['http://placekitten.com/200/300','http://placekitten.com/200/200','http://placekitten.com/100/100','http://placekitten.com/300/200']
+                    
+                    for(var i = 0; i < ImageSource.length; i++)
+                    {
+                        var Image = document.createElement('img')
+                        Image.src= ImageSource[i]
+                        $(Image).attr('width',200)
+                        document.body.appendChild(Image)
+                       
+                       $("img:eq(1)").click(function(){
+                        $(this).css('border','7px solid red')
+                       })
+                    }
+                    
+                }
+
+                //part 6 ajax
+                if(textBox.value == "ajax")
+                {
+                    var advice = new XMLHttpRequest()
+                    advice.open("GET", 'advice.txt', true)
+                    
+                    advice.onreadystatechange = text
+
+                    advice.send(null)
+                   
+                }
+
+                function text()
+                {
+                   var firstHead = document.createElement('h1');
+                   document.body.appendChild(firstHead);
+                document.getElementsByTagName('h1')[0].innerHTML = advice.responseText
+                }
+
+            
+            
             }
+            
         }
         function changeImg()
         {
