@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <style>
         body {display:flex; 
         flex-direction: column; 
@@ -12,7 +13,7 @@
             color:rgb(62, 115, 220);
             margin-top:50px;
         }
-        div{
+        .containers{
             background-color: white;
             padding: 30px;
             font-size: 20px;
@@ -25,6 +26,19 @@
         li {
             margin-top: 20px;
         }
+
+        .grey{
+            background-color: rgb(244, 244, 244);
+            padding:30px;
+        }
+
+        .lightblue{
+            color: rgb(85, 140, 218);
+        }
+
+        .purple{
+            color: rgb(223, 137, 174);
+        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,16 +47,37 @@
 </head>
 <body>
     <h1>What is Local Storage?</h1>
-    <div>
+    <div class="containers">
         <ul>
             <li>window.localStorage is a property that allows users to store data values in a web browser.</li>
             <li>Usually, stored datas are deleted when browser is closed. However, localStorage stores data for an unlimited time.</li>
         </ul>
     </div>
 
-    <div>
+    <div class="containers">
         <h3>Example</h3>
-        <img src="/storageexample.png" alt="" width="700px;">
+        <div>
+            <p>Step 1: Create an Object</p>
+            <p class="grey">Car = {make: <span class="lightblue">"Nissan"</span>, model: <span class="lightblue">"Sentra"</span>, year: <span class="lightblue">2015</span>}</p>
+        </div>
+
+        <div>
+            <p>Step 2: Stringify Object</p>
+            <p class="grey">thisCar = <span class="purple">JSON</span>.<span class="lightblue">stringify</span>(Car)<br>
+                localStorage. <span class="purple">setItem</span>(<span class="lightblue">"mycar"</span>, thisCar)</p>
+        </div>
+
+         <div>
+            <p>Step 3: Get the String</p>
+            <p class="grey">textCar = localStorage. <span class="purple">getItem</span>(<span class="lightblue">"mycar"</span>)<br>
+                newCar = <span class="purple">JSON</span>.<span class="lightblue">parse</span>(textCar)<br>
+                console.<span class="purple">log</span>(newCar)</p>
+        </div>
+
+        <div>
+            <p>Result</p>
+            <img src="/result.png" alt="image" width="550px">
+        </div>
     </div>
 </body>
 </html>
