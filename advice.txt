@@ -1,1 +1,2 @@
-This is advice.txt
+
+["Eat", "lots", "of", "vegetables", "and", "fruits"]

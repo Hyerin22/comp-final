@@ -285,9 +285,17 @@
 
                 function text()
                 {
-                   var firstHead = document.createElement('h1');
-                   document.body.appendChild(firstHead);
-                document.getElementsByTagName('h1')[0].innerHTML = advice.responseText
+                    
+                    if(advice.readyState == 4)
+                  { var firstHead = document.createElement('h1');
+                    document.body.appendChild(firstHead);
+                    document.getElementsByTagName('h1')[0].innerHTML = advice.responseText
+                    var adviceObj = JSON.parse(advice.responseText.toUpperCase());
+                    firstHead.innerHTML = adviceObj;
+                }
+
+                
+                
                 }
 
             
