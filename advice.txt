@@ -1,2 +1,2 @@
 
-["Eat", "lots", "of", "vegetables", "and", "fruits"]
+["Take", "time", "to", "know", "yourself"]
