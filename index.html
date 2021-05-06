@@ -63,6 +63,8 @@
 
                 moveTimer = null
                 stepNumber = 0
+                walkingRight = true
+                walkingLeft = false
                 
 
                 function stepRight()
@@ -88,26 +90,50 @@
                 {
                     alien.style.left = parseInt(alien.style.left) + 1 + "px"
                     stepRight()
-                    if(alien.offsetLeft = 33)
+                    turnAroundToLeftWalk()
+                    walkingRight = true
+                    walkingLeft = false
+                    if(textBox.value == "stop")
                     {
                         clearInterval(moveTimer)
-                        moveTimer = setInterval(walkLeft, 100)
+                        moveTimer = null
                     }
+
+                }
+                function walkLeft()
+                {
+                    alien.style.left = parseInt(alien.style.left) - 1 + "px"
+                    stepLeft()
+                    turnAroundToRightWalk()
+                    walkingRight = false
+                    walkingLeft = true
                     if(textBox.value == "stop")
                     {
                         clearInterval(moveTimer)
                         moveTimer = null
                     }
                 }
-                function walkLeft()
+                function runRight()
+                {
+                    alien.style.left = parseInt(alien.style.left) + 1 + "px"
+                    stepRight()
+                    turnAroundToLeftRun()
+                    walkingRight = true
+                    walkingLeft = false
+                    if(textBox.value == "stop")
+                    {
+                        clearInterval(moveTimer)
+                        moveTimer = null
+                    }
+
+                }
+                function runLeft()
                 {
                     alien.style.left = parseInt(alien.style.left) - 1 + "px"
                     stepLeft()
-                    if(alien.offsetLeft = 27)
-                    {
-                        clearInterval(moveTimer)
-                        moveTimer = setInterval(walkRight, 100)
-                    }
+                    turnAroundToRightRun()
+                    walkingRight = false
+                    walkingLeft = true
                     if(textBox.value == "stop")
                     {
                         clearInterval(moveTimer)
@@ -115,34 +141,50 @@
                     }
                 }
 
-                function runRight()
+                function turnAroundToLeftWalk()
                 {
-                    alien.style.left = parseInt(alien.style.left) + 1 + "px"
-                    stepRight()
-                    if(alien.offsetLeft = 33)
+                    if(alien.offsetLeft + 90 >= window.innerWidth)
                     {
-                        clearInterval(moveTimer)
-                        moveTimer = setInterval(runLeft, 10)
-                    }
-                    if(textBox.value == "stop")
-                    {
-                        clearInterval(moveTimer)
-                        moveTimer = null
+                        if(moveTimer != null)
+                        {
+                            clearInterval(moveTimer)
+                            moveTimer = setInterval(walkLeft, 100)
+                        }
                     }
                 }
-                function runLeft()
+
+                function turnAroundToRightWalk()
                 {
-                    alien.style.left = parseInt(alien.style.left) - 1 + "px"
-                    stepLeft()
-                    if(alien.offsetLeft = 27)
+                    if(alien.offsetLeft <= window.innerWidth - parseInt(window.innerWidth))
                     {
-                        clearInterval(moveTimer)
-                        moveTimer = setInterval(runRight, 10)
+                        if(moveTimer != null)
+                        {
+                            clearInterval(moveTimer)
+                            moveTimer = setInterval(walkRight, 100)
+                        }
                     }
-                    if(textBox.value == "stop")
+                }
+                function turnAroundToLeftRun()
+                {
+                    if(alien.offsetLeft + 90 >= window.innerWidth)
                     {
-                        clearInterval(moveTimer)
-                        moveTimer = null
+                        if(moveTimer != null)
+                        {
+                            clearInterval(moveTimer)
+                            moveTimer = setInterval(runLeft, 10)
+                        }
+                    }
+                }
+
+                function turnAroundToRightRun()
+                {
+                    if(alien.offsetLeft <= window.innerWidth - parseInt(window.innerWidth))
+                    {
+                        if(moveTimer != null)
+                        {
+                            clearInterval(moveTimer)
+                            moveTimer = setInterval(runRight, 10)
+                        }
                     }
                 }
 
